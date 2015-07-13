@@ -1,0 +1,19 @@
+{
+  "name": "online",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sealday/online",
+  "authors": [
+    "sealday <sealday@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.2"
+  }
+}
