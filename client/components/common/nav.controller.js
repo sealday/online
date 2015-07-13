@@ -17,16 +17,46 @@ function NavController(userService) {
   vm.userService = userService;
   vm.toggleMenu = toggleMenu;
   vm.menuOpened = false;
+  vm.menuListener = null;
 
   activate();
 
   ////////////////
 
   function activate() {
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(min-width: 768px)');
+      mq.addListener(mqListener);
+      mqListener();
+      function mqListener() {
+        if (mq.matches) {
+          angular.element('.s-left-nav').css({
+            display: 'block',
+            width: '200px',
+            float: 'left'
+          });
+          if (vm.menuListener) {
+            window.removeEventListener('click', vm.menuListener);
+          }
+        } else {
+          angular.element('.s-left-nav').css({
+            display: 'none'
+          });
+          vm.menuListener = window.addEventListener('click', function(e){
+            console.log(e.target);
+            toggleMenu();
+          });
+        }
+        vm.menuOpened = false;
+      };
+    }
   }
 
-  function toggleMenu() {
-    if (!vm.menuOpened) {
+  function toggleMenu($event) {
+    if ($event) {
+      $event.stopPropagation();
+    }
+    if (!vm.menuOpened && $event) {
       angular.element('.s-left-nav').css({
         display: 'block',
         width: '200px',
@@ -37,7 +67,7 @@ function NavController(userService) {
     } else {
       angular.element('.s-left-nav').css({
         display: 'none'
-      })
+      });
     }
     vm.menuOpened = !vm.menuOpened;
   }
