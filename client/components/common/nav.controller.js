@@ -16,6 +16,7 @@ function NavController(userService) {
   vm.title = 'NavController';
   vm.userService = userService;
   vm.toggleMenu = toggleMenu;
+  vm.menuOpened = false;
 
   activate();
 
@@ -25,10 +26,19 @@ function NavController(userService) {
   }
 
   function toggleMenu() {
-    angular.element('.s-left-nav').css({
-      display: 'block',
-      width: '100px',
-      float: 'left'
-    })
+    if (!vm.menuOpened) {
+      angular.element('.s-left-nav').css({
+        display: 'block',
+        width: '200px',
+        float: 'left',
+        position: 'fixed',
+        'z-index': 1
+      })
+    } else {
+      angular.element('.s-left-nav').css({
+        display: 'none'
+      })
+    }
+    vm.menuOpened = !vm.menuOpened;
   }
 }
