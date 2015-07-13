@@ -6,6 +6,10 @@ body {
   display: none;
 }
 
+.s-left-btn {
+  display: inline-block;
+}
+
 .s-right-content {
   margin-left: 0px;
   min-height: 900px;
@@ -17,6 +21,10 @@ body {
     display: block;
     float: left;
     width: 200px;
+  }
+
+  .s-left-btn {
+    display: none;
   }
 
   .s-right-content {

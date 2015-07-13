@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="UserController as uc">
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavController as nc">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -21,7 +21,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="" ui-sref="home">学生在线</a>
+      <div class="navbar-brand">
+        <a class="s-left-btn" href="" ng-click="nc.toggleMenu()"><span class="glyphicon glyphicon-menu-hamburger">&nbsp;</span></a>
+        <a class="" href="" ui-sref="home">学生在线</a>
+      </div>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <form class="navbar-form navbar-right">
@@ -41,8 +44,8 @@
   <div class="row">
     <div class="s-left-nav">
       <img src="img/left-nav.svg">
-      <ul class="nav nav-pills nav-stacked" ng-controller="NavController as nc">
-        <li ng-repeat="route in nc.routes" ui-sref-active="active"><a ui-sref="{{route.state}}" href="">{{route.name}}</a></li>
+      <ul class="nav nav-pills nav-stacked" ng-controller="RouterController as rc">
+        <li ng-repeat="route in rc.routes" ui-sref-active="active"><a ui-sref="{{route.state}}" href="">{{route.name}}</a></li>
       </ul>
     </div>
     <div class="s-right-content">
@@ -63,8 +66,8 @@
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="js/app.js"></script>
 <script src="js/app.config.js"></script>
+<script src="components/common/router.controller.js"></script>
 <script src="components/common/nav.controller.js"></script>
-<script src="components/common/user.controller.js"></script>
 <script src="components/common/user.service.js"></script>
 <script src="components/info/info.controller.js"></script>
 </body>

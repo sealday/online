@@ -1,27 +1,21 @@
 /**
  * Created by seal on 15/7/13.
  */
-
 angular
   .module('online')
   .controller('NavController', NavController);
 
-NavController.$inject = [];
+NavController.$inject = ['userService'];
 
 /* @ngInject */
-function NavController() {
+function NavController(userService) {
   /* jshint validthis: true */
   var vm = this;
 
   vm.activate = activate;
   vm.title = 'NavController';
-  vm.routes = [{
-    name: '个人信息',
-    state: 'info'
-  }, {
-    name: '报销',
-    state: 'reimbursement'
-  }];
+  vm.userService = userService;
+  vm.toggleMenu = toggleMenu;
 
   activate();
 
@@ -30,5 +24,11 @@ function NavController() {
   function activate() {
   }
 
-
+  function toggleMenu() {
+    angular.element('.s-left-nav').css({
+      display: 'block',
+      width: '100px',
+      float: 'left'
+    })
+  }
 }
