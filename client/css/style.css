@@ -1,0 +1,25 @@
+body {
+  padding-top: 50px;
+}
+
+.s-left-nav {
+  display: none;
+}
+
+.s-right-content {
+  margin-left: 0px;
+  min-height: 900px;
+  padding: 15px;
+}
+
+@media (min-width: 768px) {
+  .s-left-nav {
+    display: block;
+    float: left;
+    width: 200px;
+  }
+
+  .s-right-content {
+    margin-left: 200px;
+  }
+}
