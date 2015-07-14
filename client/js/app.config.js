@@ -22,5 +22,8 @@ function onlineConfig($urlRouterProvider, $stateProvider) {
     templateUrl: base + 'info/info.html',
     controller: 'InfoController',
     controllerAs: 'ic'
+  }).state('info.edit', {
+    url: '/edit',
+    templateUrl: base + 'info/info.edit.html'
   });
 }

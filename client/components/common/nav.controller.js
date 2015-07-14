@@ -26,8 +26,6 @@ function NavController(userService) {
   function activate() {
     if (window.matchMedia) {
       var mq = window.matchMedia('(min-width: 768px)');
-      mq.addListener(mqListener);
-      mqListener();
       function mqListener() {
         if (mq.matches) {
           angular.element('.s-left-nav').css({
@@ -48,7 +46,9 @@ function NavController(userService) {
           });
         }
         vm.menuOpened = false;
-      };
+      }
+      mq.addListener(mqListener);
+      mqListener();
     }
   }
 
