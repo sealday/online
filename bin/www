@@ -4,9 +4,11 @@
  * Module dependencies.
  */
 
+global.MONGO_URL = 'mongodb://127.0.0.1/online';
 var app = require('../app');
 var debug = require('debug')('online:server');
 var http = require('http');
+
 
 /**
  * Get port from environment and store in Express.

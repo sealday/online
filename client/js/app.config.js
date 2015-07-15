@@ -24,6 +24,8 @@ function onlineConfig($urlRouterProvider, $stateProvider) {
     controllerAs: 'ic'
   }).state('info.edit', {
     url: '/edit',
-    templateUrl: base + 'info/info.edit.html'
+    templateUrl: base + 'info/info.edit.html',
+    controller: 'InfoEditController',
+    controllerAs: 'iec'
   });
 }
